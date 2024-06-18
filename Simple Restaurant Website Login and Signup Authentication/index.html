@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login and Signup Page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab" id="loginTab" onclick="changeTab('loginForm')">Login</div>
+            <div class="tab" id="signupTab" onclick="changeTab('signupForm')">Signup</div>
+        </div>
+
+        <div class="welcome-box">
+            <h2>Welcome!</h2>
+            <p>Please select a tab to login or signup.</p>
+        </div>
+
+        <div class="form-container">
+            <div class="form" id="loginForm">
+                <h2>Login</h2>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <div id="login-error-message" class="login-error-message"></div>
+                
+                <button type="button" onclick="validateLoginForm()">Login</button>
+            </div>
+            
+            <div class="form" id="signupForm">
+                <h2>Signup</h2>
+                <label for="newUsername">Username:</label>
+                <input type="text" id="newUsername" name="newUsername" pattern="[A-Za-z0-9]+" title="Username should be alphanumeric" required>
+                
+                <label for="newPassword">Password:</label>
+                <input type="password" id="newPassword" name="newPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.*\s).{6,}" title="Password should be at least 6 characters, including 1 uppercase letter, 1 lowercase letter, 1 special character, and 1 number" required>
+                
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+                <div id="signup-error-message" class="signup-error-message"></div>
+                
+                <button type="button" onclick="validateSignupForm()">Signup</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
